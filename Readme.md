@@ -1569,7 +1569,13 @@ plt.plot(profit_per_year)
 > ### Movies profits investment increased or decreased every year? Is it a good investment?
 >
 >   As we can see the profits increases every year with excellent rate .
-
+>
+> #### A list of Web sites, books, forums, blog posts, github repositories, etc. that you referred to or used in creating your submission
+> * I use python packeges documentation
+>
+> * https://stackoverflow.com/
+>
+> * https://www.geeksforgeeks.org/
 
 
 
