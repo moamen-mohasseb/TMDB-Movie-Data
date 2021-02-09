@@ -1263,14 +1263,62 @@ plot_relation_rate(top_stage,'Profit','Movie Name',"top 10")
 
 
 ```python
+top_stage
+```
+
+
+
+
+    original_title
+    E.T. the Extra-Terrestrial        1767968064
+    Jaws                              1878643093
+    Jurassic Park                     1293766704
+    Jurassic World                    1254445953
+    One Hundred and One Dalmatians    1545635295
+    Star Wars: The Force Awakens      1718723210
+    The Empire Strikes Back           1376997526
+    The Godfather                     1246626367
+    The Jungle Book                   1319404004
+    The Net                           1551568265
+    Name: profit, dtype: int32
+
+
+
+>  as in  above figure all those great movies has the highest profits  no one will wonder why as we saw those movies has agreat story a great actors and actress."Jaws" acheive 1878643093 $ in 1975 which is a perfect profit .
+
+
+```python
 # plot  highest 10 directors with highest profit 
 top_stage=tmdb_top_10_revenue.groupby(['director'])['profit'].sum()
 plot_relation_rate(top_stage,'Profit','Director Name',"TOP 10")
 ```
 
 
-![png](output_30_0.png)
+![png](output_32_0.png)
 
+
+
+```python
+top_stage
+```
+
+
+
+
+    director
+    Clyde Geronimi|Hamilton Luske|Wolfgang Reitherman    1.545635e+09
+    Colin Trevorrow                                      1.254446e+09
+    Francis Ford Coppola                                 1.246626e+09
+    Irvin Kershner                                       1.376998e+09
+    Irwin Winkler                                        1.551568e+09
+    J.J. Abrams                                          1.718723e+09
+    Steven Spielberg                                     4.940378e+09
+    Wolfgang Reitherman                                  1.319404e+09
+    Name: profit, dtype: float64
+
+
+
+> as in above figure we can see that choosing director for movie affect profit. for example "Steven Spielberg" movie profits exceeds all other director with high rate. 
 
 
 ```python
@@ -1280,8 +1328,10 @@ plot_relation_rate(top_stage,'profit','Director','Lowest 10')
 ```
 
 
-![png](output_31_0.png)
+![png](output_35_0.png)
 
+
+> as in above figure we can see that choosing director for movie affect profit and can be disaster as all above movie lose massive amount of mony. for example "sngmoo" loss exceeds all other director with high rate. 
 
 
 ```python
@@ -1291,8 +1341,10 @@ plot_relation_rate(top_stage,'profit','Movie name',"Lowest 10")
 ```
 
 
-![png](output_32_0.png)
+![png](output_37_0.png)
 
+
+> as movies can be a good investment but also any loss can be dissaster."The Warrior's Way" loss about 413912431 $  in 2010 . we should with get more information for fail factors.
 
 ### Research Question 2  (How many documentary movies there? is investing in it waste money?)
 
@@ -1339,10 +1391,10 @@ plot_relation_rate(top_stage,'Profit','Documentry',"Movie")
 ```
 
 
-![png](output_35_0.png)
+![png](output_41_0.png)
 
 
-> ####  From the figure we found that most of documentry movie has a good rate in profit
+> From the figure we found that most of documentry movie has a good rate in profit as from 35 movie only 8 has loss  which when we compare bugdget and revenue we notice small different.
 > * Let's found the relation between percentage of all losing movies  and losing documentary movies
 
 
@@ -1359,7 +1411,7 @@ plt.show();
 ```
 
 
-![png](output_37_0.png)
+![png](output_43_0.png)
 
 
 
@@ -1450,7 +1502,9 @@ plot_relation_rate_dic(geners,'Movie Type','Occurance',"of data")
 ```
 
 
-![png](output_45_0.png)
+![png](output_51_0.png)
+
+
 
 
 
@@ -1510,6 +1564,75 @@ collections.Counter(dict(sorted(director.items(), key=lambda item: item[1], reve
 
 
 ```python
+tmdb_df_cleaned.groupby('release_year')['profit'].max()
+```
+
+
+
+
+    release_year
+    1960     353902438
+    1961    1545635295
+    1962     421694260
+    1963     543972910
+    1964     853474464
+    1965    1072786239
+    1966     176258462
+    1967    1319404004
+    1968     280319034
+    1969     572485481
+    1970     753716632
+    1971     585909207
+    1972    1246626367
+    1973     760138651
+    1974     516964986
+    1975    1878643093
+    1976     593913194
+    1977    1021009368
+    1978     819690439
+    1979     580426232
+    1980    1376997526
+    1981     891949444
+    1982    1767968064
+    1983    1182994738
+    1984     640207822
+    1985     734056617
+    1986     680039989
+    1987     587518210
+    1988     608162159
+    1989     749629788
+    1990     806077995
+    1991     672458993
+    1992     739793586
+    1993    1293766704
+    1994    1093391570
+    1995    1551568265
+    1996    1031498096
+    1997     678402232
+    1998     553537805
+    1999    1059439453
+    2000     533600434
+    2001    1048582022
+    2002    1027133804
+    2003    1214854862
+    2004     888736813
+    2005     832868046
+    2006     936357520
+    2007     828938573
+    2008     827367505
+    2009     809752826
+    2010     863171911
+    2011    1166009242
+    2012    1234247694
+    2013    1052306489
+    2014     649479527
+    2015    1718723210
+    Name: profit, dtype: int32
+
+
+
+
+```python
 # plot the relation between movies profit per year 
 profit_per_year=tmdb_df_cleaned.groupby('release_year')['profit'].sum()
 plt.figure(figsize=(12,6))
@@ -1522,15 +1645,15 @@ plt.plot(profit_per_year)
 
 
 
-    [<matplotlib.lines.Line2D at 0x23ed6afaa60>]
+    [<matplotlib.lines.Line2D at 0x21e1e784970>]
 
 
 
 
-![png](output_51_1.png)
+![png](output_59_1.png)
 
 
-### As we can see the profits increases every year with excellent rate 
+#### As we can see the profits increases every year with excellent rate  as from 21418471 $ in 1960 to 1718723210 $ in 2010 which amasseive increase
 
 <a id='conclusions'></a>
 ## Conclusions
@@ -1570,12 +1693,17 @@ plt.plot(profit_per_year)
 >
 >   As we can see the profits increases every year with excellent rate .
 >
-> #### A list of Web sites, books, forums, blog posts, github repositories, etc. that you referred to or used in creating your submission
-> * I use python packeges documentation
+> ### Limitations:
 >
-> * https://stackoverflow.com/
+> * Many rows without data   so from 10800 record only 3800 record stay and other been droped .
 >
-> * https://www.geeksforgeeks.org/
+> * A lot of information should used like awards received for the movie .
+>
+> * Awards received by actors or actress to show there popularity .
+>
+> * movie writers as they have massive rule in movie success.
+> 
+> * Factors of success or fail of movie should be recorded as movie may release in war or global pandemic which contribute in movie fail .
 
 
 
